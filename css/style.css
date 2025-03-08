@@ -106,13 +106,13 @@
     
 }
 .navbar-logo {
-    width: 350px; /* Increase width */
-    height: 500px; /* Increase height */
-    object-fit: contain; /* Ensures the logo scales properly */
+    width: 350px; 
+    height: 500px; 
+    object-fit: contain;
 }
 
 .navbar {
-    height: 70px; /* Adjust navbar height if needed */
+    height: 70px; 
     display: flex;
     align-items: center;
     background-color: #9393935c;
@@ -121,6 +121,7 @@
 .sticky-top.navbar-light .navbar-brand img {
     /* max-height: 45px; */
 }
+
 
 @media (max-width: 991.98px) {
     .sticky-top.navbar-light {
@@ -141,7 +142,9 @@
     }
 
     .navbar-light .navbar-brand img {
-        max-height: 45px;
+        max-height: none; /* Remove height restriction */
+        width: 40px; /* Set new width */
+        height: auto; /* Maintain aspect ratio */
     }
 }
 
@@ -179,6 +182,12 @@
 
     .navbar-light .navbar-nav .nav-link.nav-contact::before {
         display: none;
+    }
+
+    .navbar-light .navbar-brand img {
+        width: 40px; /* Adjust as needed */
+        height: auto; /* Maintain aspect ratio */
+        max-height: unset; /* Remove height restrictions */
     }
 }
 
