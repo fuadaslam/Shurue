@@ -1,0 +1,132 @@
+<!-- Google Analytics Tracking Code -->
+<!-- Replace GA_MEASUREMENT_ID with your actual Google Analytics Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'GA_MEASUREMENT_ID', {
+        page_title: document.title,
+        page_location: window.location.href,
+        custom_map: {
+            'custom_parameter_1': 'shurue_group',
+            'custom_parameter_2': 'saudi_arabia',
+            'custom_parameter_3': 'business_consultancy'
+        }
+    });
+
+    // Track important user interactions
+    document.addEventListener('DOMContentLoaded', function () {
+        // Track contact form submissions
+        const contactForms = document.querySelectorAll('form');
+        contactForms.forEach(form => {
+            form.addEventListener('submit', function () {
+                gtag('event', 'form_submit', {
+                    'event_category': 'engagement',
+                    'event_label': 'contact_form'
+                });
+            });
+        });
+
+        // Track phone number clicks
+        const phoneNumbers = document.querySelectorAll('a[href^="tel:"]');
+        phoneNumbers.forEach(phone => {
+            phone.addEventListener('click', function () {
+                gtag('event', 'phone_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'phone_contact'
+                });
+            });
+        });
+
+        // Track WhatsApp clicks
+        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+        whatsappLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                gtag('event', 'whatsapp_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'whatsapp_contact'
+                });
+            });
+        });
+
+        // Track service page visits
+        const serviceLinks = document.querySelectorAll('a[href*="service"]');
+        serviceLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                gtag('event', 'service_page_click', {
+                    'event_category': 'navigation',
+                    'event_label': 'service_page'
+                });
+            });
+        });
+    });
+</script>
+
+<!-- Google Tag Manager (Alternative) -->
+<!-- Uncomment if you prefer Google Tag Manager -->
+<!--
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
+
+<!-- Enhanced E-commerce Tracking (Optional) -->
+<script>
+    // Track service inquiries as e-commerce events
+    function trackServiceInquiry(serviceName, serviceCategory) {
+        gtag('event', 'begin_checkout', {
+            'event_category': 'ecommerce',
+            'event_label': serviceName,
+            'custom_parameter_1': serviceCategory,
+            'custom_parameter_2': 'shurue_group'
+        });
+    }
+
+    // Track consultation bookings
+    function trackConsultationBooking() {
+        gtag('event', 'purchase', {
+            'event_category': 'ecommerce',
+            'event_label': 'free_consultation',
+            'value': 0,
+            'currency': 'SAR'
+        });
+    }
+</script>
+
+<!-- Conversion Tracking -->
+<script>
+    // Track successful contact form submissions
+    function trackContactSuccess() {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+            'value': 1.0,
+            'currency': 'SAR'
+        });
+    }
+
+    // Track phone call conversions
+    function trackPhoneCall() {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+            'value': 1.0,
+            'currency': 'SAR'
+        });
+    }
+</script>
+
+<!-- Instructions for Implementation -->
+<!--
+1. Replace GA_MEASUREMENT_ID with your actual Google Analytics Measurement ID
+2. If using Google Tag Manager, replace GTM-XXXXXXX with your actual GTM ID
+3. For conversion tracking, replace CONVERSION_ID/CONVERSION_LABEL with your actual conversion tracking code
+4. Add this file to your website's head section or before closing body tag
+5. Test the tracking in Google Analytics Real-Time reports
+6. Set up goals and conversions in Google Analytics
+7. Monitor performance in Google Search Console
+-->
