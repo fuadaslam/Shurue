@@ -1,7 +1,16 @@
 /* ===================================
    MODERN UI ENHANCEMENTS
    Ultra-modern effects and animations
+   GitHub Pages Compatible
    =================================== */
+
+/* Ensure CSS Variables are available */
+:root {
+    --primary: #764ba2;
+    --primary-dark: #5a3a7a;
+    --accent: #fbbf24;
+    --accent-dark: #f59e0b;
+}
 
 /* Particle background effect */
 .particle-bg {
@@ -18,23 +27,53 @@
     position: absolute;
     border-radius: 50%;
     opacity: 0.3;
+    -webkit-animation: particleFloat 15s infinite;
+    -moz-animation: particleFloat 15s infinite;
     animation: particleFloat 15s infinite;
+    will-change: transform, opacity;
 }
 
-@keyframes particleFloat {
+@-webkit-keyframes particleFloat {
     0%, 100% {
+        -webkit-transform: translateY(0) translateX(0) scale(1);
         transform: translateY(0) translateX(0) scale(1);
         opacity: 0.3;
     }
     25% {
+        -webkit-transform: translateY(-100px) translateX(50px) scale(1.2);
         transform: translateY(-100px) translateX(50px) scale(1.2);
         opacity: 0.5;
     }
     50% {
+        -webkit-transform: translateY(-200px) translateX(-30px) scale(0.8);
         transform: translateY(-200px) translateX(-30px) scale(0.8);
         opacity: 0.3;
     }
     75% {
+        -webkit-transform: translateY(-150px) translateX(80px) scale(1.1);
+        transform: translateY(-150px) translateX(80px) scale(1.1);
+        opacity: 0.4;
+    }
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        -webkit-transform: translateY(0) translateX(0) scale(1);
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.3;
+    }
+    25% {
+        -webkit-transform: translateY(-100px) translateX(50px) scale(1.2);
+        transform: translateY(-100px) translateX(50px) scale(1.2);
+        opacity: 0.5;
+    }
+    50% {
+        -webkit-transform: translateY(-200px) translateX(-30px) scale(0.8);
+        transform: translateY(-200px) translateX(-30px) scale(0.8);
+        opacity: 0.3;
+    }
+    75% {
+        -webkit-transform: translateY(-150px) translateX(80px) scale(1.1);
         transform: translateY(-150px) translateX(80px) scale(1.1);
         opacity: 0.4;
     }
@@ -43,6 +82,7 @@
 /* Glowing card effect */
 .glow-card {
     position: relative;
+    will-change: transform;
 }
 
 .glow-card::before {
@@ -58,12 +98,25 @@
     opacity: 0;
     transition: opacity 0.5s ease;
     background-size: 400% 400%;
+    -webkit-animation: gradientShift 3s ease infinite;
+    -moz-animation: gradientShift 3s ease infinite;
     animation: gradientShift 3s ease infinite;
 }
 
 .glow-card:hover::before {
     opacity: 0.7;
+    -webkit-filter: blur(10px);
     filter: blur(10px);
+}
+
+@-webkit-keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@-moz-keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 @keyframes gradientShift {
@@ -435,13 +488,20 @@
     border: 2px solid rgba(118, 75, 162, 0.1);
     border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
+    background: #ffffff;
 }
 
 .modern-input:focus {
     border-color: #764ba2;
+    border-color: var(--primary, #764ba2);
+    -webkit-box-shadow: 0 0 0 0.25rem rgba(118, 75, 162, 0.15);
+    -moz-box-shadow: 0 0 0 0.25rem rgba(118, 75, 162, 0.15);
     box-shadow: 0 0 0 0.25rem rgba(118, 75, 162, 0.15);
     background: white;
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
     transform: translateY(-2px);
 }
 

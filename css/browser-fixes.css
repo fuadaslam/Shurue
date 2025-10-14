@@ -1,0 +1,196 @@
+/* ===================================
+   BROWSER COMPATIBILITY FIXES
+   For GitHub Pages Deployment
+   =================================== */
+
+/* Ensure animations work across all browsers */
+* {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Smooth scrolling for all browsers */
+html {
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+}
+
+/* Ensure transforms work properly */
+.service-item,
+.modern-card,
+.stats-box,
+.glow-card,
+.whatsapp-float,
+.back-to-top {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Additional backdrop-filter fallbacks */
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+    .navbar {
+        background: #ffffff !important;
+        box-shadow: 0 8px 32px rgba(118, 75, 162, 0.15) !important;
+    }
+    
+    .navbar.sticky-top {
+        background: #ffffff !important;
+    }
+    
+    .service-item,
+    .modern-card,
+    .stats-box {
+        background: #ffffff !important;
+    }
+}
+
+/* Ensure gradients work in all browsers */
+.gradient-text,
+.section-title,
+.section-heading {
+    background: -webkit-linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: -moz-linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Ensure flexbox works in older browsers */
+.d-flex,
+.navbar,
+.whatsapp-float {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* Ensure button animations work */
+.btn,
+.btn-primary,
+.btn-secondary {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Performance optimization for animations */
+.hero-header::before,
+.hero-header::after,
+.blob,
+.particle {
+    will-change: transform, opacity;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Ensure box-shadows render properly */
+.service-item,
+.modern-card,
+.stats-box {
+    -webkit-box-shadow: 0 10px 40px rgba(118, 75, 162, 0.08);
+    -moz-box-shadow: 0 10px 40px rgba(118, 75, 162, 0.08);
+    box-shadow: 0 10px 40px rgba(118, 75, 162, 0.08);
+}
+
+/* Ensure border-radius works everywhere */
+.btn,
+.service-item,
+.modern-card,
+.stats-box {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+/* Fix for iOS Safari button tap highlight */
+.btn,
+.whatsapp-float,
+.back-to-top {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+}
+
+/* Ensure transitions work smoothly */
+.service-item,
+.modern-card,
+.stats-box,
+.btn {
+    -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent font rendering issues */
+body,
+.navbar,
+.btn {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Fix for Firefox gradient text */
+@-moz-document url-prefix() {
+    .gradient-text,
+    .section-title,
+    .section-heading {
+        background: -moz-linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+    }
+}
+
+/* Ensure filter effects work */
+.glow-card:hover::before {
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    -o-filter: blur(10px);
+    filter: blur(10px);
+}
+
+/* Performance: GPU acceleration for animations */
+@media (min-width: 768px) {
+    .service-item,
+    .modern-card,
+    .stats-box,
+    .glow-card,
+    .whatsapp-float {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Fix for Edge browser */
+@supports (-ms-ime-align: auto) {
+    .service-item,
+    .modern-card,
+    .stats-box {
+        background: #ffffff;
+    }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-overflow-scrolling: touch) {
+    .navbar {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .whatsapp-float {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
