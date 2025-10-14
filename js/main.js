@@ -96,4 +96,106 @@
       time: 2000,
     });
   }
+
+  // Counter Animation
+  const counter = document.querySelectorAll(".counter");
+  const speed = 200;
+
+  const runCounter = () => {
+    counter.forEach((counter) => {
+      const animate = () => {
+        const value = +counter.getAttribute("data-target");
+        const data = +counter.innerText;
+        const time = value / speed;
+
+        if (data < value) {
+          counter.innerText = Math.ceil(data + time);
+          setTimeout(animate, 1);
+        } else {
+          counter.innerText = value;
+        }
+      };
+      animate();
+    });
+  };
+
+  // Intersection Observer for Counter Animation
+  const observerOptions = {
+    threshold: 0.5,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !entry.target.classList.contains("counted")) {
+        entry.target.classList.add("counted");
+        runCounter();
+      }
+    });
+  }, observerOptions);
+
+  const statsSection = document.querySelector(".stats-box");
+  if (statsSection) {
+    observer.observe(statsSection.closest(".container-xxl"));
+  }
+
+  // Smooth scroll for anchor links
+  $('a[href^="#"]').on("click", function (e) {
+    e.preventDefault();
+    const target = $(this.getAttribute("href"));
+    if (target.length) {
+      $("html, body")
+        .stop()
+        .animate(
+          {
+            scrollTop: target.offset().top - 100,
+          },
+          1000
+        );
+    }
+  });
+
+  // Add parallax effect to hero section (subtle upward movement)
+  $(window).on("scroll", function () {
+    const scrolled = $(window).scrollTop();
+    if (scrolled < 600) {
+      // Only apply when hero is visible
+      $(".hero-header").css(
+        "transform",
+        "translateY(" + scrolled * -0.3 + "px)"
+      );
+    }
+  });
+
+  // Add hover effect to service cards
+  $(".service-item")
+    .on("mouseenter", function () {
+      $(this).find("i").addClass("animated tada");
+    })
+    .on("mouseleave", function () {
+      $(this).find("i").removeClass("animated tada");
+    });
+
+  // Add stagger animation to elements on scroll
+  const staggerObserverOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("fadeInUp");
+        }, index * 100);
+        staggerObserver.unobserve(entry.target);
+      }
+    });
+  }, staggerObserverOptions);
+
+  // Observe elements
+  document
+    .querySelectorAll(".service-item, .stats-box, .accordion-item")
+    .forEach((el) => {
+      staggerObserver.observe(el);
+    });
 })(jQuery);

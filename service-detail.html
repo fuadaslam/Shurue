@@ -3,10 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Shurue - Services Crafted for You</title>
+    <title>Service Details - Shurue | Premium Services Crafted for You</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Shurue services, Umrah packages, Business setup, Tax services, Investment licenses" name="keywords">
+    <meta
+        content="Explore our comprehensive range of professional services including Umrah packages, business setup, tax consultation, and more."
+        name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -32,242 +34,827 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Modern Enhancements -->
+    <link href="css/modern-enhancements.css" rel="stylesheet">
+
+    <style>
+        /* Service Detail Specific Styles */
+        .service-detail-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(118, 75, 162, 0.08);
+            border: 2px solid rgba(118, 75, 162, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(118, 75, 162, 0.2);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .service-detail-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-detail-card h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-card .lead {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            padding: 20px;
+            margin-bottom: 15px;
+            background: rgba(118, 75, 162, 0.03);
+            border-radius: 15px;
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            background: rgba(118, 75, 162, 0.08);
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(118, 75, 162, 0.1);
+        }
+
+        .feature-list li i {
+            color: #764ba2;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        .feature-list strong {
+            color: #333;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .service-image-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(118, 75, 162, 0.15);
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .service-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-image-wrapper:hover img {
+            transform: scale(1.1);
+        }
+
+        .service-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(118, 75, 162, 0.3) 0%, rgba(251, 191, 36, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .service-image-wrapper:hover::after {
+            opacity: 1;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(118, 75, 162, 0.05) 0%, rgba(155, 111, 201, 0.05) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .benefit-card:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(118, 75, 162, 0.3);
+            border-color: #fbbf24;
+        }
+
+        .benefit-card i {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover i {
+            -webkit-text-fill-color: #fff;
+            transform: scale(1.1);
+        }
+
+        .benefit-card h5 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            transition: color 0.4s ease;
+        }
+
+        .benefit-card:hover h5,
+        .benefit-card:hover p {
+            color: #fff;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #5a3a7a 100%);
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            color: #fff;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.2) 0%, transparent 70%);
+            animation: rotateCta 20s linear infinite;
+        }
+
+        @keyframes rotateCta {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-card h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quick-nav {
+            position: sticky;
+            top: 100px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(118, 75, 162, 0.1);
+            border: 2px solid rgba(118, 75, 162, 0.1);
+        }
+
+        .quick-nav h5 {
+            font-weight: 700;
+            color: #764ba2;
+            margin-bottom: 20px;
+        }
+
+        .quick-nav a {
+            display: block;
+            padding: 12px 20px;
+            margin-bottom: 8px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .quick-nav a:hover,
+        .quick-nav a.active {
+            background: linear-gradient(135deg, rgba(118, 75, 162, 0.1) 0%, rgba(155, 111, 201, 0.1) 100%);
+            color: #764ba2;
+            border-left-color: #764ba2;
+            transform: translateX(5px);
+        }
+
+        .quick-nav a i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        @media (max-width: 991px) {
+            .quick-nav {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+
+            .service-detail-card {
+                padding: 25px;
+            }
+
+            .service-image-wrapper {
+                min-height: 300px;
+                margin-bottom: 30px;
+            }
+        }
+
+        .breadcrumb-modern {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .breadcrumb-modern a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-modern a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .breadcrumb-modern i {
+            margin: 0 15px;
+            opacity: 0.7;
+        }
+    </style>
 </head>
-<!-- Spinner Start -->
-<div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
-</div>
-<!-- Spinner End -->
 
 <body>
-    <!-- Header -->
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">
-                <!-- <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Tourist</h1> -->
+            <a href="index.html" class="navbar-brand p-0">
                 <img src="./img/Shurue-logo.png" alt="Shurue" class="navbar-logo">
-
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link ">Home</a>
+                    <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link active">Services</a>
-                    <!-- <a href="package.html" class="nav-item nav-link">Packages</a> -->
-                    <!-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="destination.html" class="dropdown-item">Destination</a>
-                            <a href="booking.html" class="dropdown-item">Booking</a>
-                            <a href="team.html" class="dropdown-item">Travel Guides</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div> -->
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-
             </div>
         </nav>
 
+        <!-- Hero Header -->
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white animated slideInDown">Service Details</h1>
-                        <nav aria-label="breadcrumb">
-                            <!-- <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-white active" aria-current="page">Booking</li>
-                            </ol> -->
-                        </nav>
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">Our Services in Detail</h1>
+                        <p class="fs-5 text-white mb-4 animated slideInDown">Comprehensive solutions tailored to your
+                            needs</p>
+                        <div class="breadcrumb-modern">
+                            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="service.html">Services</a>
+                            <i class="fas fa-chevron-right"></i>
+                            <span class="text-white">Details</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Navbar End -->
 
     <!-- Service Details Section -->
-    <section class="container py-5">
-        <div class="row mb-5" id="umrah">
-            <div class="col-md-6">
-                <img src="img/destination-1.jpg" alt="Premium Umrah Services" class="img-fluid rounded shadow">
+    <div class="container py-5">
+        <div class="row">
+            <!-- Quick Navigation Sidebar -->
+            <div class="col-lg-3">
+                <div class="quick-nav">
+                    <h5><i class="fas fa-list-ul me-2"></i>Quick Navigation</h5>
+                    <a href="#umrah" class="nav-link-item"><i class="fas fa-mosque"></i>Premium Umrah</a>
+                    <a href="#electronic" class="nav-link-item"><i class="fas fa-laptop"></i>Electronic Services</a>
+                    <a href="#commercial" class="nav-link-item"><i class="fas fa-briefcase"></i>Commercial Services</a>
+                    <a href="#investment" class="nav-link-item"><i class="fas fa-chart-line"></i>Investment License</a>
+                    <a href="#zakaat" class="nav-link-item"><i class="fas fa-hand-holding-heart"></i>Zakaat Services</a>
+                    <a href="#vat" class="nav-link-item"><i class="fas fa-calculator"></i>VAT & Income Tax</a>
+                    <a href="#audit" class="nav-link-item"><i class="fas fa-file-invoice-dollar"></i>Auditing
+                        Services</a>
+                    <a href="#setup" class="nav-link-item"><i class="fas fa-building"></i>Business Setup</a>
+                    <a href="#corporate" class="nav-link-item"><i class="fas fa-users-cog"></i>Corporate Services</a>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h2>Premium Umrah Services</h2>
-                <p>Embark on a spiritually uplifting journey with our Premium Umrah Package, designed for pilgrims
-                    seeking exceptional comfort, convenience, and peace of mind.</p>
-                <ul>
-                    <li><strong>Luxury Accommodation</strong><br>Stay at 5-star hotels just steps from the Haram in
-                        Makkah and Madinah. Enjoy elegant rooms, stunning views, and first-class hospitality.</li>
-                    <li><strong>Hassle-Free Travel</strong><br>We take care of round-trip flights, visa processing,
-                        airport transfers, and all local transportation. Travel in comfort with private or VIP group
-                        transfers.</li>
-                    <li><strong>Guided Spiritual Experience</strong><br>Benefit from the guidance of qualified scholars
-                        who provide religious support and ensure that your Umrah is performed correctly and
-                        meaningfully.</li>
-                    <li><strong>All-Inclusive Services</strong><br>Enjoy buffet meals, welcome kits (Ihram, prayer mat,
-                        etc.), high-speed internet, and Ziyarat tours to key Islamic sites in both Makkah and Madinah.
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mb-5 flex-md-row-reverse" id="electronic">
-            <div class="col-md-6">
-                <img src="img/booking.jpg" alt="Electronic Services" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6">
-                <h2>Electronic Services</h2>
-                <p>Transform your workflow with our comprehensive electronic services, designed to simplify processes
-                    and enhance efficiency for both individuals and businesses.</p>
-                <ul>
-                    <li><strong>Online Document Submissions</strong><br>Submit and manage important documents securely
-                        and conveniently through our digital platform.</li>
-                    <li><strong>E-Government Applications</strong><br>Access and complete government-related
-                        applications online, saving time and reducing paperwork.</li>
-                    <li><strong>Digital Transformation Consultancy</strong><br>Receive expert advice to digitize your
-                        business operations and stay ahead in a rapidly evolving digital landscape.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mb-5" id="commercial">
-            <div class="col-md-6">
-                <img src="img/Commercial.jpg" alt="Commercial Services" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6">
-                <h2>Commercial Services</h2>
-                <p>Empower your business with our commercial services, offering end-to-end support for licensing,
-                    compliance, and market entry strategies.</p>
-                <ul>
-                    <li><strong>Business Licensing</strong><br>Obtain the necessary licenses to operate legally and
-                        confidently in your chosen market.</li>
-                    <li><strong>Regulatory Compliance</strong><br>Navigate complex regulations with our expert guidance,
-                        ensuring your business remains compliant at all times.</li>
-                    <li><strong>Market Entry Strategy</strong><br>Develop and implement effective strategies for
-                        entering new markets and expanding your business footprint.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mb-5 flex-md-row-reverse" id="investment">
-            <div class="col-md-6">
-                <img src="img/ivestmentservice.jpg" alt="Investment License" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6">
-                <h2>Investment License</h2>
-                <p>Secure your investment license with ease through our expert support, guiding you from application to
-                    approval in new markets.</p>
-                <ul>
-                    <li><strong>Investment License Application</strong><br>We handle the entire application process,
-                        ensuring accuracy and timely submission.</li>
-                    <li><strong>Legal and Regulatory Guidance</strong><br>Benefit from our in-depth knowledge of local
-                        laws and regulations to avoid common pitfalls.</li>
-                    <li><strong>Post-Approval Support</strong><br>Receive ongoing assistance after approval to help you
-                        establish and grow your investment.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mb-5" id="zakaat">
-            <div class="col-md-6">
-                <img src="img/Zakaat.jpg" alt="Zakaat" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6">
-                <h2>Zakaat</h2>
-                <p>Fulfill your charitable obligations with confidence using our Zakaat services, designed to help you
-                    calculate, manage, and distribute your contributions in accordance with Islamic principles.</p>
-                <ul>
-                    <li><strong>Zakaat Calculation</strong><br>Accurately calculate your Zakaat with our easy-to-use
-                        tools and expert guidance.</li>
-                    <li><strong>Distribution Management</strong><br>Ensure your Zakaat reaches those in need through our
-                        trusted distribution channels.</li>
-                    <li><strong>Charity Partnerships</strong><br>Partner with reputable charities to maximize the impact
-                        of your giving.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mb-5 flex-md-row-reverse" id="vat">
-            <div class="col-md-6">
-                <img src="img/tax.jpg" alt="VAT and Income Tax" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6">
-                <h2>VAT and Income Tax</h2>
-                <p>Stay compliant and maximize your tax efficiency with our VAT and income tax services, tailored to
-                    meet your personal or business needs.</p>
-                <ul>
-                    <li><strong>VAT Registration and Filing</strong><br>Register for VAT and file returns accurately and
-                        on time with our expert assistance.</li>
-                    <li><strong>Income Tax Planning</strong><br>Optimize your tax position and plan ahead with
-                        personalized tax strategies.</li>
-                    <li><strong>Compliance Audits</strong><br>Ensure your records and filings meet all regulatory
-                        requirements through thorough audits.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mb-5" id="audit">
-            <div class="col-md-6">
-                <img src="img/tax audit.jpg" alt="Auditing and Tax Services" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6">
-                <h2>Auditing and Tax Services</h2>
-                <p>Operate transparently and meet all regulatory requirements with our comprehensive auditing and tax
-                    advisory services.</p>
-                <ul>
-                    <li><strong>Financial Audits</strong><br>Gain confidence in your financial statements with our
-                        thorough and independent audits.</li>
-                    <li><strong>Tax Advisory</strong><br>Receive expert advice on tax matters to minimize liabilities
-                        and avoid penalties.</li>
-                    <li><strong>Regulatory Reporting</strong><br>Stay up to date with all required regulatory filings
-                        and disclosures.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mb-5 flex-md-row-reverse" id="setup">
-            <div class="col-md-6">
-                <img src="img/business.jpg" alt="Business Setup Services" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6">
-                <h2>Business Setup Services</h2>
-                <p>Start your business journey with confidence. Our business setup services cover everything from legal
-                    registration to office setup and staffing.</p>
-                <ul>
-                    <li><strong>Company Registration</strong><br>Register your company quickly and efficiently with our
-                        step-by-step support.</li>
-                    <li><strong>Office Setup</strong><br>Get your office up and running with our comprehensive setup
-                        solutions.</li>
-                    <li><strong>Staff Recruitment</strong><br>Find and hire the right talent to build your team and grow
-                        your business.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mb-5" id="corporate">
-            <div class="col-md-6">
-                <img src="img/corporate.webp" alt="Corporate Services" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-6">
-                <h2>Corporate Services</h2>
-                <p>Support your business growth at every stage with our full suite of corporate services, from HR and
-                    payroll to legal compliance and consulting.</p>
-                <ul>
-                    <li><strong>HR and Payroll Management</strong><br>Streamline your HR processes and ensure timely,
-                        accurate payroll for your employees.</li>
-                    <li><strong>Legal Compliance</strong><br>Stay compliant with all relevant laws and regulations with
-                        our expert legal support.</li>
-                    <li><strong>Business Consulting</strong><br>Access strategic advice and solutions to drive your
-                        business forward.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
-    <!-- Back to Services Link -->
-    <div class="text-center pb-5">
-        <a href="service.html" class="btn btn-primary">Back to Services</a>
+            <!-- Service Details Content -->
+            <div class="col-lg-9">
+                <!-- Premium Umrah Services -->
+                <div id="umrah" class="service-detail-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="service-image-wrapper">
+                                <img src="img/destination-1.jpg" alt="Premium Umrah Services" class="w-100">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2><i class="fas fa-mosque me-3"></i>Premium Umrah Services</h2>
+                            <p class="lead">Embark on a spiritually uplifting journey with our Premium Umrah Package,
+                                designed for pilgrims seeking exceptional comfort, convenience, and peace of mind.</p>
+
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-hotel"></i>
+                                    <strong>Luxury Accommodation</strong>
+                                    Stay at 5-star hotels just steps from the Haram in Makkah and Madinah. Enjoy elegant
+                                    rooms, stunning views, and first-class hospitality.
+                                </li>
+                                <li>
+                                    <i class="fas fa-plane-departure"></i>
+                                    <strong>Hassle-Free Travel</strong>
+                                    We take care of round-trip flights, visa processing, airport transfers, and all
+                                    local transportation in comfort.
+                                </li>
+                                <li>
+                                    <i class="fas fa-user-tie"></i>
+                                    <strong>Guided Spiritual Experience</strong>
+                                    Benefit from qualified scholars who provide religious support and ensure your Umrah
+                                    is performed correctly.
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <strong>All-Inclusive Services</strong>
+                                    Enjoy buffet meals, welcome kits, high-speed internet, and Ziyarat tours to key
+                                    Islamic sites.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="benefits-grid mt-5">
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.1s">
+                            <i class="fas fa-star"></i>
+                            <h5>5-Star Hotels</h5>
+                            <p>Premium accommodation near Haram</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.2s">
+                            <i class="fas fa-shield-alt"></i>
+                            <h5>Full Support</h5>
+                            <p>24/7 assistance during your journey</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.3s">
+                            <i class="fas fa-book-open"></i>
+                            <h5>Religious Guidance</h5>
+                            <p>Expert scholars to guide you</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Electronic Services -->
+                <div id="electronic" class="service-detail-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row align-items-center flex-row-reverse">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="service-image-wrapper">
+                                <img src="img/booking.jpg" alt="Electronic Services">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2><i class="fas fa-laptop me-3"></i>Electronic Services</h2>
+                            <p class="lead">Transform your workflow with our comprehensive electronic services, designed
+                                to simplify processes and enhance efficiency for both individuals and businesses.</p>
+
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-file-upload"></i>
+                                    <strong>Online Document Submissions</strong>
+                                    Submit and manage important documents securely and conveniently through our digital
+                                    platform.
+                                </li>
+                                <li>
+                                    <i class="fas fa-landmark"></i>
+                                    <strong>E-Government Applications</strong>
+                                    Access and complete government-related applications online, saving time and reducing
+                                    paperwork.
+                                </li>
+                                <li>
+                                    <i class="fas fa-digital-tachograph"></i>
+                                    <strong>Digital Transformation Consultancy</strong>
+                                    Receive expert advice to digitize your business operations and stay ahead in the
+                                    digital landscape.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial Services -->
+                <div id="commercial" class="service-detail-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="service-image-wrapper">
+                                <img src="img/Commercial.jpg" alt="Commercial Services">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2><i class="fas fa-briefcase me-3"></i>Commercial Services</h2>
+                            <p class="lead">Empower your business with our commercial services, offering end-to-end
+                                support for licensing, compliance, and market entry strategies.</p>
+
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-certificate"></i>
+                                    <strong>Business Licensing</strong>
+                                    Obtain the necessary licenses to operate legally and confidently in your chosen
+                                    market.
+                                </li>
+                                <li>
+                                    <i class="fas fa-balance-scale"></i>
+                                    <strong>Regulatory Compliance</strong>
+                                    Navigate complex regulations with our expert guidance, ensuring compliance at all
+                                    times.
+                                </li>
+                                <li>
+                                    <i class="fas fa-globe"></i>
+                                    <strong>Market Entry Strategy</strong>
+                                    Develop effective strategies for entering new markets and expanding your business
+                                    footprint.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="benefits-grid mt-5">
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.1s">
+                            <i class="fas fa-rocket"></i>
+                            <h5>Fast Processing</h5>
+                            <p>Quick license acquisition</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.2s">
+                            <i class="fas fa-handshake"></i>
+                            <h5>Expert Support</h5>
+                            <p>Professional consultation</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.3s">
+                            <i class="fas fa-chart-line"></i>
+                            <h5>Growth Strategy</h5>
+                            <p>Market expansion planning</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment License -->
+                <div id="investment" class="service-detail-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row align-items-center flex-row-reverse">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="service-image-wrapper">
+                                <img src="img/ivestmentservice.jpg" alt="Investment License">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2><i class="fas fa-chart-line me-3"></i>Investment License</h2>
+                            <p class="lead">Secure your investment license with ease through our expert support, guiding
+                                you from application to approval in new markets.</p>
+
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-file-contract"></i>
+                                    <strong>Investment License Application</strong>
+                                    We handle the entire application process, ensuring accuracy and timely submission.
+                                </li>
+                                <li>
+                                    <i class="fas fa-gavel"></i>
+                                    <strong>Legal and Regulatory Guidance</strong>
+                                    Benefit from our in-depth knowledge of local laws and regulations to avoid common
+                                    pitfalls.
+                                </li>
+                                <li>
+                                    <i class="fas fa-headset"></i>
+                                    <strong>Post-Approval Support</strong>
+                                    Receive ongoing assistance after approval to help you establish and grow your
+                                    investment.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zakaat Services -->
+                <div id="zakaat" class="service-detail-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="service-image-wrapper">
+                                <img src="img/Zakaat.jpg" alt="Zakaat Services">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2><i class="fas fa-hand-holding-heart me-3"></i>Zakaat Services</h2>
+                            <p class="lead">Fulfill your charitable obligations with confidence using our Zakaat
+                                services, designed to help you calculate, manage, and distribute your contributions in
+                                accordance with Islamic principles.</p>
+
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-calculator"></i>
+                                    <strong>Zakaat Calculation</strong>
+                                    Accurately calculate your Zakaat with our easy-to-use tools and expert guidance.
+                                </li>
+                                <li>
+                                    <i class="fas fa-hands-helping"></i>
+                                    <strong>Distribution Management</strong>
+                                    Ensure your Zakaat reaches those in need through our trusted distribution channels.
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart"></i>
+                                    <strong>Charity Partnerships</strong>
+                                    Partner with reputable charities to maximize the impact of your giving.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="benefits-grid mt-5">
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.1s">
+                            <i class="fas fa-check-double"></i>
+                            <h5>Accurate Calculation</h5>
+                            <p>Precise Zakaat computation</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.2s">
+                            <i class="fas fa-donate"></i>
+                            <h5>Trusted Distribution</h5>
+                            <p>Verified charity partners</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.3s">
+                            <i class="fas fa-file-alt"></i>
+                            <h5>Complete Records</h5>
+                            <p>Detailed documentation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VAT and Income Tax -->
+                <div id="vat" class="service-detail-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row align-items-center flex-row-reverse">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="service-image-wrapper">
+                                <img src="img/tax.jpg" alt="VAT and Income Tax">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2><i class="fas fa-calculator me-3"></i>VAT and Income Tax</h2>
+                            <p class="lead">Stay compliant and maximize your tax efficiency with our VAT and income tax
+                                services, tailored to meet your personal or business needs.</p>
+
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-file-invoice"></i>
+                                    <strong>VAT Registration and Filing</strong>
+                                    Register for VAT and file returns accurately and on time with our expert assistance.
+                                </li>
+                                <li>
+                                    <i class="fas fa-project-diagram"></i>
+                                    <strong>Income Tax Planning</strong>
+                                    Optimize your tax position and plan ahead with personalized tax strategies.
+                                </li>
+                                <li>
+                                    <i class="fas fa-search-dollar"></i>
+                                    <strong>Compliance Audits</strong>
+                                    Ensure your records and filings meet all regulatory requirements through thorough
+                                    audits.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auditing and Tax Services -->
+                <div id="audit" class="service-detail-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="service-image-wrapper">
+                                <img src="img/tax audit.jpg" alt="Auditing and Tax Services">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2><i class="fas fa-file-invoice-dollar me-3"></i>Auditing and Tax Services</h2>
+                            <p class="lead">Operate transparently and meet all regulatory requirements with our
+                                comprehensive auditing and tax advisory services.</p>
+
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-chart-pie"></i>
+                                    <strong>Financial Audits</strong>
+                                    Gain confidence in your financial statements with our thorough and independent
+                                    audits.
+                                </li>
+                                <li>
+                                    <i class="fas fa-user-shield"></i>
+                                    <strong>Tax Advisory</strong>
+                                    Receive expert advice on tax matters to minimize liabilities and avoid penalties.
+                                </li>
+                                <li>
+                                    <i class="fas fa-clipboard-check"></i>
+                                    <strong>Regulatory Reporting</strong>
+                                    Stay up to date with all required regulatory filings and disclosures.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="benefits-grid mt-5">
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.1s">
+                            <i class="fas fa-award"></i>
+                            <h5>Certified Auditors</h5>
+                            <p>Professional audit team</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.2s">
+                            <i class="fas fa-file-contract"></i>
+                            <h5>Compliance</h5>
+                            <p>Meet all regulations</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.3s">
+                            <i class="fas fa-piggy-bank"></i>
+                            <h5>Tax Savings</h5>
+                            <p>Minimize liabilities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Setup Services -->
+                <div id="setup" class="service-detail-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row align-items-center flex-row-reverse">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="service-image-wrapper">
+                                <img src="img/business.jpg" alt="Business Setup Services">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2><i class="fas fa-building me-3"></i>Business Setup Services</h2>
+                            <p class="lead">Start your business journey with confidence. Our business setup services
+                                cover everything from legal registration to office setup and staffing.</p>
+
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-file-signature"></i>
+                                    <strong>Company Registration</strong>
+                                    Register your company quickly and efficiently with our step-by-step support.
+                                </li>
+                                <li>
+                                    <i class="fas fa-building"></i>
+                                    <strong>Office Setup</strong>
+                                    Get your office up and running with our comprehensive setup solutions.
+                                </li>
+                                <li>
+                                    <i class="fas fa-users"></i>
+                                    <strong>Staff Recruitment</strong>
+                                    Find and hire the right talent to build your team and grow your business.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corporate Services -->
+                <div id="corporate" class="service-detail-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <div class="service-image-wrapper">
+                                <img src="img/corporate.webp" alt="Corporate Services">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2><i class="fas fa-users-cog me-3"></i>Corporate Services</h2>
+                            <p class="lead">Support your business growth at every stage with our full suite of corporate
+                                services, from HR and payroll to legal compliance and consulting.</p>
+
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-user-clock"></i>
+                                    <strong>HR and Payroll Management</strong>
+                                    Streamline your HR processes and ensure timely, accurate payroll for your employees.
+                                </li>
+                                <li>
+                                    <i class="fas fa-shield-alt"></i>
+                                    <strong>Legal Compliance</strong>
+                                    Stay compliant with all relevant laws and regulations with our expert legal support.
+                                </li>
+                                <li>
+                                    <i class="fas fa-lightbulb"></i>
+                                    <strong>Business Consulting</strong>
+                                    Access strategic advice and solutions to drive your business forward.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="benefits-grid mt-5">
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.1s">
+                            <i class="fas fa-cogs"></i>
+                            <h5>Full HR Solutions</h5>
+                            <p>Complete HR management</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.2s">
+                            <i class="fas fa-certificate"></i>
+                            <h5>Legal Expertise</h5>
+                            <p>Regulatory compliance</p>
+                        </div>
+                        <div class="benefit-card wow fadeInUp" data-wow-delay="0.3s">
+                            <i class="fas fa-trophy"></i>
+                            <h5>Strategic Growth</h5>
+                            <p>Business consulting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="cta-card wow fadeInUp" data-wow-delay="0.1s">
+                    <h3>Ready to Get Started?</h3>
+                    <p>Contact us today to discuss how we can help you achieve your goals with our professional
+                        services.</p>
+                    <a href="contact.html" class="btn btn-light btn-lg px-5 py-3"
+                        style="border-radius: 50px; font-weight: 700; position: relative; z-index: 1;">
+                        <i class="fas fa-phone-alt me-2"></i>Contact Us Now
+                    </a>
+                </div>
+
+                <!-- Back to Services Link -->
+                <div class="text-center mb-5">
+                    <a href="service.html" class="btn btn-primary btn-lg px-5 py-3" style="border-radius: 50px;">
+                        <i class="fas fa-arrow-left me-2"></i>Back to All Services
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -276,11 +863,11 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Company</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">FAQs & Help</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="#">Privacy Policy</a>
+                    <a class="btn btn-link" href="#">Terms & Condition</a>
+                    <a class="btn btn-link" href="#">FAQs & Help</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
@@ -288,7 +875,6 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+966554991232</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+966539935655</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>shuruegroup@gmail.com</p>
-
                 </div>
 
                 <div class="col-lg-3 col-md-6">
@@ -296,13 +882,11 @@
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Thaif</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+966542525468</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>shuruegroup@gmail.com</p>
-
                 </div>
-
 
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3"></h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>dammam</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Dammam</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+966505685096</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>shuruegroup@gmail.com</p>
                     <div class="d-flex pt-2">
@@ -312,40 +896,6 @@
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-
-                <!-- <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/package-1.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/package-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/package-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/package-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/package-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/package-1.jpg" alt="">
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text"
-                            placeholder="Your email">
-                        <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div> -->
             </div>
         </div>
         <div class="container">
@@ -353,16 +903,13 @@
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="#">Fuad Aslam</a>, All Right Reserved.
-
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://github.com/fuadaslam/credit-removal". Thank you for your support. ***/-->
-
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a href="index.html">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
                         </div>
                     </div>
                 </div>
@@ -372,7 +919,6 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -387,6 +933,54 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Smooth Scroll for Navigation -->
+    <script>
+        // Smooth scroll for quick navigation
+        document.querySelectorAll('.quick-nav a, a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offsetTop = target.offsetTop - 100;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+
+                        // Update active state
+                        document.querySelectorAll('.quick-nav a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Highlight active section in navigation on scroll
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('.service-detail-card');
+            const navLinks = document.querySelectorAll('.quick-nav a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/+966554991232" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">

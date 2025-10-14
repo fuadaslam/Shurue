@@ -1,0 +1,1012 @@
+/* ===================================
+   MODERN UI ENHANCEMENTS
+   Ultra-modern effects and animations
+   =================================== */
+
+/* Particle background effect */
+.particle-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: particleFloat 15s infinite;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-100px) translateX(50px) scale(1.2);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-200px) translateX(-30px) scale(0.8);
+        opacity: 0.3;
+    }
+    75% {
+        transform: translateY(-150px) translateX(80px) scale(1.1);
+        opacity: 0.4;
+    }
+}
+
+/* Glowing card effect */
+.glow-card {
+    position: relative;
+}
+
+.glow-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #764ba2, #fbbf24, #667eea, #f093fb);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+}
+
+.glow-card:hover::before {
+    opacity: 0.7;
+    filter: blur(10px);
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Modern text reveal animation */
+.text-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealText 0.8s forwards;
+}
+
+@keyframes revealText {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Magnetic button effect */
+.btn-magnetic {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-magnetic:hover {
+    transform: scale(1.05);
+}
+
+/* Ripple effect */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Neon glow text */
+.neon-text {
+    color: #fff;
+    text-shadow:
+        0 0 10px rgba(118, 75, 162, 0.8),
+        0 0 20px rgba(118, 75, 162, 0.6),
+        0 0 30px rgba(118, 75, 162, 0.4),
+        0 0 40px rgba(118, 75, 162, 0.2);
+    animation: neonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow:
+            0 0 10px rgba(118, 75, 162, 0.8),
+            0 0 20px rgba(118, 75, 162, 0.6),
+            0 0 30px rgba(118, 75, 162, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 20px rgba(118, 75, 162, 1),
+            0 0 30px rgba(118, 75, 162, 0.8),
+            0 0 40px rgba(118, 75, 162, 0.6),
+            0 0 50px rgba(118, 75, 162, 0.4);
+    }
+}
+
+/* Morphing shapes */
+.morph-shape {
+    animation: morphing 8s ease-in-out infinite;
+}
+
+@keyframes morphing {
+    0%, 100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    25% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    50% {
+        border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+    }
+    75% {
+        border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%;
+    }
+}
+
+/* Stagger fade in */
+.stagger-fade-in > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+.stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3D card flip */
+.card-3d {
+    perspective: 1000px;
+}
+
+.card-3d-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-3d-inner {
+    transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* Blob animation */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: blobMove 20s ease-in-out infinite;
+}
+
+@keyframes blobMove {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(100px, -50px) scale(1.2);
+    }
+    66% {
+        transform: translate(-50px, 100px) scale(0.8);
+    }
+}
+
+/* Progress bar animation */
+.progress-bar-modern {
+    height: 8px;
+    background: rgba(118, 75, 162, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-modern::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    border-radius: 10px;
+    animation: progressFill 2s ease-out forwards;
+}
+
+@keyframes progressFill {
+    to { width: 100%; }
+}
+
+/* Floating labels effect */
+.floating-label {
+    position: relative;
+}
+
+.floating-label input:focus ~ label,
+.floating-label input:not(:placeholder-shown) ~ label {
+    transform: translateY(-150%) scale(0.8);
+    color: var(--primary);
+}
+
+.floating-label label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: white;
+    padding: 0 5px;
+}
+
+/* Skeleton loading */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(118, 75, 162, 0.05) 25%,
+        rgba(118, 75, 162, 0.1) 50%,
+        rgba(118, 75, 162, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 10px;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Tilt effect */
+.tilt-effect {
+    transition: transform 0.3s ease;
+}
+
+.tilt-effect:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Smooth reveal on scroll */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modern tooltip */
+.tooltip-modern {
+    position: relative;
+}
+
+.tooltip-modern::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    padding: 8px 12px;
+    background: rgba(118, 75, 162, 0.95);
+    color: white;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.tooltip-modern:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Image zoom on hover */
+.image-zoom-wrapper {
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    z-index: 5 !important;
+}
+
+.image-zoom-wrapper img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+.image-zoom-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+/*** Contact Page Enhancements ***/
+
+/* Contact Info Cards */
+.contact-info-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 250px;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(118, 75, 162, 0.2) !important;
+}
+
+.contact-info-card .icon-wrapper {
+    display: inline-block;
+    transition: all 0.4s ease;
+}
+
+.contact-info-card:hover .icon-wrapper i {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.contact-info-card a {
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-info-card a:hover {
+    color: var(--primary, #764ba2);
+}
+
+/* Office Cards */
+.office-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid transparent;
+}
+
+.office-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(118, 75, 162, 0.2) !important;
+    border-left-color: #764ba2;
+}
+
+.office-card .office-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(118, 75, 162, 0.1);
+    border-radius: 12px;
+    transition: all 0.4s ease;
+}
+
+.office-card:hover .office-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.office-card:hover .office-icon i {
+    color: white !important;
+}
+
+.office-card a {
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.office-card a:hover {
+    color: #764ba2;
+    transform: translateX(3px);
+    display: inline-block;
+}
+
+/* Modern Input Styling */
+.modern-input {
+    border: 2px solid rgba(118, 75, 162, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.modern-input:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 0 0.25rem rgba(118, 75, 162, 0.15);
+    background: white;
+    transform: translateY(-2px);
+}
+
+.modern-input:hover {
+    border-color: rgba(118, 75, 162, 0.3);
+}
+
+/* Form Alert Styling */
+.alert {
+    border-radius: 15px;
+    border: none;
+    padding: 20px;
+    margin-bottom: 30px;
+    animation: slideDown 0.5s ease-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border-left: 5px solid #28a745;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+    border-left: 5px solid #dc3545;
+}
+
+/* Map Container */
+.map-container {
+    box-shadow: 0 10px 40px rgba(118, 75, 162, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.map-container:hover {
+    box-shadow: 0 20px 60px rgba(118, 75, 162, 0.25);
+    transform: translateY(-5px);
+}
+
+.map-container iframe {
+    border-radius: 20px;
+}
+
+/* Contact Hero Styling */
+.hero-header {
+    position: relative;
+}
+
+.hero-header h1 {
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.hero-header p {
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+/* Form Labels with Icons */
+.form-floating label i {
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+/* Enhanced Button Magnetic Effect */
+.btn-magnetic::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-magnetic:hover::after {
+    width: 400px;
+    height: 400px;
+}
+
+/* Contact Info Card Phone Links Hover */
+.contact-info-card a[href^="tel:"] > div {
+    transition: all 0.3s ease;
+}
+
+.contact-info-card a[href^="tel:"]:hover > div {
+    background: rgba(118, 75, 162, 0.1) !important;
+    transform: translateX(5px);
+}
+
+/* Office Card Enhanced Hover */
+.office-card a[href^="tel:"],
+.office-card a[href^="mailto:"] {
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 5px;
+}
+
+.office-card a[href^="tel:"]:hover,
+.office-card a[href^="mailto:"]:hover {
+    color: #764ba2 !important;
+    padding-left: 10px;
+}
+
+/* Hero Buttons Enhanced Animation */
+.hero-header .btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-header .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.hero-header .btn:hover::after {
+    width: 400px;
+    height: 400px;
+}
+
+.hero-header .btn-light:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.hero-header .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Badge Pulse Animation */
+.hero-header .badge {
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+}
+
+/* Contact Form "Why Choose Shurue" Card Enhancements */
+.contact-info-card .d-flex.align-items-start {
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.contact-info-card .d-flex.align-items-start:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+/* Social Media Buttons Enhanced */
+.contact-info-card .btn-outline-primary:hover {
+    transform: translateY(-3px) scale(1.1);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: transparent;
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(118, 75, 162, 0.4);
+}
+
+/* Form Input Focus Glow Effect */
+.modern-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(118, 75, 162, 0.15), 0 8px 25px rgba(118, 75, 162, 0.1) !important;
+}
+
+/* Decorative Circle Animation in Cards */
+@keyframes floatCircleGlow {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-10px, -10px) scale(1.1);
+        opacity: 0.5;
+    }
+}
+
+.contact-info-card > div[style*="position: absolute"],
+.office-card > div[style*="position: absolute"] {
+    animation: floatCircleGlow 6s ease-in-out infinite;
+}
+
+/* Contact Page Responsive */
+@media (max-width: 768px) {
+    .contact-info-card {
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .office-card {
+        margin-bottom: 20px;
+    }
+    
+    .map-container iframe {
+        height: 300px;
+    }
+    
+    .hero-header h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-header .d-flex.gap-3 {
+        flex-direction: column;
+        gap: 15px !important;
+    }
+    
+    .hero-header .btn {
+        width: 100%;
+    }
+}
+
+/* Icon Animation */
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.contact-info-card:hover .icon-wrapper,
+.office-card:hover .office-icon {
+    animation: iconPulse 1s ease-in-out;
+}
+
+/* Trust Stats Section Enhancements */
+.container-xxl [style*="backdrop-filter: blur"] {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container-xxl [style*="backdrop-filter: blur"]:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.container-xxl [style*="backdrop-filter: blur"]:hover h2 {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.container-xxl [style*="backdrop-filter: blur"] > div[style*="border-radius: 50%"] {
+    transition: all 0.4s ease;
+}
+
+.container-xxl [style*="backdrop-filter: blur"]:hover > div[style*="border-radius: 50%"] {
+    transform: rotate(360deg) scale(1.1);
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Accordion Enhanced Styling */
+.accordion-button:not(.collapsed) {
+    box-shadow: 0 10px 30px rgba(118, 75, 162, 0.2) !important;
+}
+
+.accordion-item {
+    border: none !important;
+}
+
+.accordion-button {
+    font-size: 16px;
+}
+
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+.accordion-body a {
+    color: #764ba2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.accordion-body a:hover {
+    color: #5a3a7a;
+    text-decoration: underline;
+}
+
+/* About Page Specific Enhancements */
+
+/* Service List Items Hover Effect */
+.col-lg-4 > div[style*="border-left"]:hover,
+.col-md-6 > div[style*="border-left"]:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(118, 75, 162, 0.15) !important;
+    cursor: pointer;
+}
+
+/* Stats Box Counter Animation */
+.stats-box .counter {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.stats-box:hover .counter {
+    transform: scale(1.05);
+}
+
+/* Mission & Vision Card Decorative Circle Animation */
+.modern-card > div[style*="border-radius: 50%"] {
+    animation: floatCircle 6s ease-in-out infinite;
+}
+
+@keyframes floatCircle {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-10px, 10px) scale(1.1);
+    }
+}
+
+/* Image Overlay Badge Animation */
+.image-zoom-wrapper > div[style*="position: absolute"] {
+    animation: slideInUp 1s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced Feature Cards */
+.col-sm-6 > div[style*="border-left"]:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.1) !important;
+}
+
+/* CTA Section Button Enhancements */
+.cta-section .btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transform: translateY(0);
+}
+
+.cta-section .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.cta-section .btn:hover::before {
+    left: 100%;
+}
+
+/* Enhanced CTA Button Hover Effects */
+.cta-section .btn-light:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4) !important;
+    background: #ffffff !important;
+}
+
+.cta-section .btn-outline-light:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-color: #fbbf24 !important;
+    box-shadow: 0 15px 50px rgba(251, 191, 36, 0.3);
+}
+
+/* Feature Pills Animation */
+.cta-section .d-flex.flex-wrap > div {
+    transition: all 0.3s ease;
+}
+
+.cta-section .d-flex.flex-wrap > div:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Icon Badge Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 20px rgba(251, 191, 36, 0);
+    }
+}
+
+/* Enhanced Neon Text for CTA */
+.cta-section .neon-text {
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 
+            0 4px 20px rgba(0, 0, 0, 0.3),
+            0 0 10px rgba(251, 191, 36, 0.3),
+            0 0 20px rgba(251, 191, 36, 0.2);
+    }
+    to {
+        text-shadow: 
+            0 4px 20px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(251, 191, 36, 0.5),
+            0 0 30px rgba(251, 191, 36, 0.3),
+            0 0 40px rgba(251, 191, 36, 0.2);
+    }
+}
+
+/* Smooth entrance for all sections */
+.container-xxl {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gradient Text Animation */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1 span[style*="background: linear-gradient"],
+h1 span[style*="-webkit-background-clip"] {
+    background-size: 200% auto;
+    animation: gradientFlow 3s ease infinite;
+}
+
+/* Service Item Grid Hover */
+.row.g-3 > div > div[style*="border-left"]:hover i {
+    transform: scale(1.2) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive Adjustments for About Page */
+@media (max-width: 768px) {
+    .image-zoom-wrapper > div[style*="position: absolute"] {
+        position: relative !important;
+        margin-top: 15px;
+    }
+    
+    .modern-card {
+        margin-bottom: 20px;
+    }
+    
+    .cta-section h2 {
+        font-size: 2rem !important;
+    }
+    
+    .cta-section p {
+        font-size: 16px !important;
+    }
+    
+    .cta-section .d-flex.justify-content-center.gap-4 {
+        flex-direction: column;
+        gap: 15px !important;
+    }
+    
+    .cta-section .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .cta-section .d-flex.flex-wrap > div {
+        font-size: 13px !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .cta-section h2 {
+        font-size: 2.8rem !important;
+    }
+    
+    .cta-section .btn {
+        font-size: 16px !important;
+        padding: 15px 35px !important;
+    }
+}
+
+/* Loading Animation for Stats */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stats-box.counted {
+    animation: countUp 0.5s ease-out;
+}
+
+/* Add subtle shadow on scroll */
+.navbar.sticky-top {
+    box-shadow: 0 2px 20px rgba(118, 75, 162, 0.1) !important;
+}
+
+/* Enhanced Why Choose Us Cards */
+.service-item {
+    cursor: default;
+    will-change: transform;
+}
+
+.service-item > div[style*="width: 80px"] {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-item:hover > div[style*="width: 80px"] {
+    transform: translateY(-5px);
+}
+
