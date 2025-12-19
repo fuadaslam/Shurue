@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Content - Shurue Admin</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/admin.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+
+        <!-- Loader Overlay -->
+        <div id="adminLoader"
+            class="d-none position-fixed w-100 h-100 top-0 start-0 bg-white d-flex justify-content-center align-items-center"
+            style="z-index: 2000; opacity: 0.8;">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="sidebar-header">
+            <h4 class="m-0 text-primary">Shurue Admin</h4>
+        </div>
+        <div class="sidebar-menu">
+            <div class="nav flex-column">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+                <a href="content.html" class="nav-link active">
+                    <i class="fas fa-file-alt"></i> Page Content
+                </a>
+                <a href="media.html" class="nav-link">
+                    <i class="fas fa-images"></i> Media Library
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <div class="mt-5">
+                    <a href="#" class="nav-link text-danger" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="admin-header">
+            <div>
+                <h2 class="mb-1">Page Content</h2>
+                <p class="text-muted mb-0">Manage website text, sections, and banners</p>
+            </div>
+            <button class="btn btn-primary btn-sm d-lg-none" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-pills mb-4" id="contentTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="pill" data-bs-target="#home" type="button"
+                    role="tab">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="about-tab" data-bs-toggle="pill" data-bs-target="#about" type="button"
+                    role="tab">About</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="services-tab" data-bs-toggle="pill" data-bs-target="#services"
+                    type="button" role="tab">Services</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="pill" data-bs-target="#contact" type="button"
+                    role="tab">Contact</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="global-tab" data-bs-toggle="pill" data-bs-target="#global" type="button"
+                    role="tab">Footer & Global</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="contentTabsContent">
+
+            <!-- Home Tab -->
+            <div class="tab-pane fade show active" id="home" role="tabpanel">
+                <div class="content-card">
+                    <h5 class="mb-4">Homepage Hero Section</h5>
+                    <form id="heroForm">
+                        <div class="mb-3">
+                            <label class="form-label">Hero Title (accepts HTML)</label>
+                            <input type="text" class="form-control" id="heroTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Hero Subtitle</label>
+                            <textarea class="form-control" id="heroSubtitle" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Hero Badge Text</label>
+                            <input type="text" class="form-control" id="heroBadge">
+                        </div>
+
+                        <h6 class="mt-4 mb-3 text-secondary">Stats Section</h6>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">Happy Clients</label>
+                                <input type="number" class="form-control" id="statClients">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Companies Formed</label>
+                                <input type="number" class="form-control" id="statCompanies">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Licenses Issued</label>
+                                <input type="number" class="form-control" id="statLicenses">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Years Experience</label>
+                                <input type="number" class="form-control" id="statYears">
+                            </div>
+                        </div>
+
+                        <h6 class="mt-4 mb-3 text-secondary">Banner Image</h6>
+                        <div class="mb-3">
+                            <label class="form-label">Home Banner Image URL</label>
+                            <input type="text" class="form-control" id="homeBannerUrl" placeholder="https://...">
+                            <div class="form-text">Recommended Resolution: 1920x1080px (Landscape)</div>
+                        </div>
+
+                        <div class="mt-4 text-end">
+                            <button type="submit" class="btn btn-primary">Save Home Content</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- About Tab -->
+            <div class="tab-pane fade" id="about" role="tabpanel">
+                <div class="content-card">
+                    <h5 class="mb-4">About Page Content</h5>
+                    <form id="aboutForm">
+                        <div class="mb-3">
+                            <label class="form-label">About Hero Title</label>
+                            <input type="text" class="form-control" id="aboutHeroTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Main Content Title</label>
+                            <input type="text" class="form-control" id="aboutMainTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Main Description</label>
+                            <textarea class="form-control" id="aboutText" rows="5"></textarea>
+                        </div>
+
+                        <h6 class="mt-4 mb-3 text-secondary">Images</h6>
+                        <div class="mb-3">
+                            <label class="form-label">About Feature Image URL</label>
+                            <input type="text" class="form-control" id="aboutImgUrl" placeholder="img/about.jpg">
+                            <div class="form-text">Recommended Resolution: 800x600px</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">About Banner Image URL</label>
+                            <input type="text" class="form-control" id="aboutBannerUrl">
+                            <div class="form-text">Recommended Resolution: 1920x600px</div>
+                        </div>
+
+                        <div class="mt-4 text-end">
+                            <button type="submit" class="btn btn-primary">Save About Content</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Services Tab -->
+            <div class="tab-pane fade" id="services" role="tabpanel">
+                <div class="content-card">
+                    <h5 class="mb-4">Services Page Content</h5>
+                    <form id="serviceForm">
+                        <div class="mb-3">
+                            <label class="form-label">Services Hero Title</label>
+                            <input type="text" class="form-control" id="serviceHeroTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Service Banner Image URL</label>
+                            <input type="text" class="form-control" id="serviceBannerUrl">
+                            <div class="form-text">Recommended Resolution: 1920x600px</div>
+                        </div>
+
+                        <div class="mt-4 text-end">
+                            <button type="submit" class="btn btn-primary">Save Service Content</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Service Items Management -->
+                <div class="content-card mt-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="mb-0">Service List</h5>
+                        <button class="btn btn-sm btn-success" onclick="openServiceModal()">
+                            <i class="fas fa-plus"></i> Add Service
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Order</th>
+                                    <th>Icon</th>
+                                    <th>Title</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="servicesListTable">
+                                <!-- Services will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Modal -->
+            <div class="modal fade" id="serviceModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="serviceModalLabel">Manage Service</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="serviceItemForm">
+                                <input type="hidden" id="serviceId">
+                                <div class="mb-3">
+                                    <label class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="serviceTitle" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" id="serviceDesc" rows="3" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Icon Class (FontAwesome)</label>
+                                    <input type="text" class="form-control" id="serviceIcon" placeholder="fa-building"
+                                        required>
+                                    <div class="form-text">Use plain class names like 'fa-building', 'fa-cogs'</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Display Order</label>
+                                    <input type="number" class="form-control" id="serviceOrder" value="0">
+                                </div>
+                                <div class="text-end">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Save Service</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Tab -->
+            <div class="tab-pane fade" id="contact" role="tabpanel">
+                <div class="content-card">
+                    <h5 class="mb-4">Contact Page Content</h5>
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label class="form-label">Contact Hero Title</label>
+                            <input type="text" class="form-control" id="contactHeroTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Contact Hero Subtitle</label>
+                            <textarea class="form-control" id="contactHeroSubtitle" rows="2"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Contact Banner Image URL</label>
+                            <input type="text" class="form-control" id="contactBannerUrl">
+                            <div class="form-text">Recommended Resolution: 1920x600px</div>
+                        </div>
+                        <div class="mt-4 text-end">
+                            <button type="submit" class="btn btn-primary">Save Contact Content</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Global / Footer Tab -->
+            <div class="tab-pane fade" id="global" role="tabpanel">
+                <div class="content-card">
+                    <h5 class="mb-4">Global & Footer Settings</h5>
+                    <form id="globalForm">
+                        <h6 class="text-secondary mb-3">Contact Information (Shown globally)</h6>
+                        <div class="mb-3">
+                            <label class="form-label">Main Phone Number</label>
+                            <input type="text" class="form-control" id="globalPhone">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Main Email Address</label>
+                            <input type="email" class="form-control" id="globalEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address / Location</label>
+                            <input type="text" class="form-control" id="globalAddress">
+                        </div>
+
+                        <h6 class="text-secondary mt-4 mb-3">Footer Content</h6>
+                        <div class="mb-3">
+                            <label class="form-label">Footer Description</label>
+                            <textarea class="form-control" id="footerDesc" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Copyright Text</label>
+                            <input type="text" class="form-control" id="footerCopyright"
+                                placeholder="Shurue Group. All Rights Reserved.">
+                        </div>
+
+                        <div class="mt-4 text-end">
+                            <button type="submit" class="btn btn-primary">Save Global Settings</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../js/firebase-config.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

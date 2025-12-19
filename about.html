@@ -133,7 +133,8 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">About Shurue Group</h1>
+                        <h1 id="about-hero-title" class="display-3 text-white mb-3 animated slideInDown">About Shurue
+                            Group</h1>
                         <p class="text-white fs-5 mb-4 animated slideInDown"
                             style="animation-delay: 0.2s; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto;">
                             Leading business consultancy in Saudi Arabia, empowering entrepreneurs with expert guidance
@@ -161,7 +162,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="position-relative image-zoom-wrapper"
                         style="border-radius: 25px; overflow: hidden; box-shadow: 0 20px 60px rgba(118, 75, 162, 0.2);">
-                        <img class="img-fluid w-100" src="img/about.jpg" alt="Shurue Group Office"
+                        <img id="about-img" class="img-fluid w-100" src="img/about.jpg" alt="Shurue Group Office"
                             style="border-radius: 25px;">
                         <div
                             style="position: absolute; bottom: 20px; left: 20px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 20px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
@@ -174,10 +175,10 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Shurue Group</h6>
-                    <h1 class="mb-4">Your Trusted Partner in <span
+                    <h1 id="about-main-title" class="mb-4">Your Trusted Partner in <span
                             style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Business
                             Excellence</span></h1>
-                    <p class="mb-4" style="font-size: 17px; line-height: 1.8; color: #555;">
+                    <p id="about-text" class="mb-4" style="font-size: 17px; line-height: 1.8; color: #555;">
                         Shurue Group is a <strong>leading business management consultancy firm</strong> based in Saudi
                         Arabia,
                         dedicated to empowering entrepreneurs and businesses to thrive in the dynamic Saudi market. We
@@ -663,7 +664,7 @@
                         <img src="./img/Shurue-logo.png" alt="Shurue Group"
                             style="max-width: 280px; filter: brightness(0) invert(1);">
                     </div>
-                    <p class="mb-4" style="color: rgba(255, 255, 255, 0.7); line-height: 1.8;">
+                    <p id="footer-desc" class="mb-4" style="color: rgba(255, 255, 255, 0.7); line-height: 1.8;">
                         Shurue Group is the best general service agency in Saudi Arabia, providing comprehensive
                         business solutions for company formation, government services, and tax compliance.
                     </p>
@@ -881,7 +882,7 @@
             <div class="copyright">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <span style="color: rgba(255, 255, 255, 0.7);">
+                        <span id="footer-copyright" style="color: rgba(255, 255, 255, 0.7);">
                             &copy; <a class="border-bottom" href="#"
                                 style="color: var(--accent); text-decoration: none;">Shurue Group</a>
                             <script>document.write(new Date().getFullYear())</script>. All Rights Reserved.
@@ -937,6 +938,36 @@
     <a href="https://wa.me/+966554991232" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script>
+        // Simple Content Hydration
+        const dbRef = db.collection('site_content');
+
+        // Load About
+        dbRef.doc('about').get().then((doc) => {
+            if (doc.exists) {
+                const data = doc.data();
+                if (data.heroTitle) document.getElementById('about-hero-title').innerHTML = data.heroTitle;
+                if (data.mainTitle) document.getElementById('about-main-title').innerHTML = data.mainTitle;
+                if (data.mainText) document.getElementById('about-text').innerHTML = data.mainText; // innerHTML for paragraphs just in case
+                if (data.mainImgUrl) document.getElementById('about-img').src = data.mainImgUrl;
+                if (data.bannerUrl) document.querySelector('.hero-header').style.backgroundImage = `linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7)), url(${data.bannerUrl})`;
+            }
+        });
+
+        // Load Global for Footer
+        dbRef.doc('global').get().then((doc) => {
+            if (doc.exists) {
+                const data = doc.data();
+                if (data.footerDesc) document.getElementById('footer-desc').innerText = data.footerDesc;
+                if (data.copyright) document.getElementById('footer-copyright').innerHTML = data.copyright;
+            }
+        });
+    </script>
 </body>
 
 </html>

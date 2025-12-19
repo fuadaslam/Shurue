@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Database - Shurue Group</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #f8f9fa;
+        }
+
+        .card {
+            max-width: 500px;
+            width: 100%;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card p-5 text-center">
+        <h3 class="mb-4">Seeding Content...</h3>
+        <div id="status" class="alert alert-info">Connecting to Firebase...</div>
+        <div id="spinner" class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <a href="index.html" id="dashboardBtn" class="btn btn-primary mt-3 d-none">Go to Dashboard</a>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <!-- Config -->
+    <script src="../js/firebase-config.js"></script>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        const spinner = document.getElementById('spinner');
+        const dashboardBtn = document.getElementById('dashboardBtn');
+
+        // Content to Seed
+        const homeData = {
+            heroBadge: "✨ Saudi Arabia's Trusted Business Partner",
+            heroTitle: "Empowering Your Business Journey in <span class=\"gradient-text-gold\">Saudi Arabia</span>",
+            heroSubtitle: "Shurue Group is recognized as the <strong style=\"color: #fbbf24;\">best general service agency</strong> in Saudi Arabia, providing expert guidance and comprehensive solutions for entrepreneurs and businesses to establish, grow, and thrive.",
+            statClients: 1200,
+            statCompanies: 450,
+            statLicenses: 300,
+            statYears: 10,
+            bannerUrl: "https://images.unsplash.com/photo-1512453979798-5ea904ac6605?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+
+        const aboutData = {
+            heroTitle: "About Shurue Group",
+            mainTitle: "Your Strategic Partner in Saudi Arabia",
+            mainText: "Founded with a vision to simplify business setup in Saudi Arabia, Shurue Group has established itself as a leader in government relations and corporate services. We bridge the gap between international ambitions and local regulations, ensuring a smooth entry into the Kingdom's thriving market.",
+            mainImgUrl: "https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+            bannerUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+
+        const servicesData = {
+            heroTitle: "Our Premium Services",
+            bannerUrl: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+
+        const contactData = {
+            heroTitle: "Get in Touch",
+            heroSubtitle: "Ready to start your business journey? Our experts are here to help.",
+            bannerUrl: "https://images.unsplash.com/photo-1423666639041-f140481d806d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+
+        const globalData = {
+            phone: "+966 50 123 4567",
+            email: "info@shuruegroup.com",
+            address: "Riyadh, Saudi Arabia",
+            footerDesc: "Your trusted partner for business setup and government services in Saudi Arabia.",
+            copyright: "© 2025 Shurue Group. All Rights Reserved.",
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+
+        // Service Items Data (Full List of 12)
+        const servicesList = [
+            {
+                title: "Premium Umrah Services",
+                desc: "Exclusive and hassle-free Umrah packages tailored to your needs.",
+                icon: "fa-star",
+                order: 1,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "Electronic Services",
+                desc: "Seamless management of all government digital platforms and e-services.",
+                icon: "fa-laptop",
+                order: 2,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "Commercial Services",
+                desc: "Support for commercial registrations, renewals, and trade activities.",
+                icon: "fa-briefcase",
+                order: 3,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "Investment License",
+                desc: "Specialized support for obtaining MISA investment licenses.",
+                icon: "fa-certificate",
+                order: 4,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "Zakaat Services",
+                desc: "Expert guidance on Zakaat calculation, filing, and compliance.",
+                icon: "fa-hand-holding-heart",
+                order: 5,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "VAT and Income Tax",
+                desc: "Comprehensive tax planning and VAT return filing services.",
+                icon: "fa-percentage",
+                order: 6,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "Auditing Services",
+                desc: "Professional financial auditing to ensure transparency and compliance.",
+                icon: "fa-file-invoice-dollar",
+                order: 7,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "Business Setup",
+                desc: "End-to-end solutions for forming and establishing new companies.",
+                icon: "fa-building",
+                order: 8,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "Corporate Services",
+                desc: "Ongoing administrative and corporate support for your business.",
+                icon: "fa-user-tie",
+                order: 9,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "PRO Services",
+                desc: "Quick and efficient public relations officer services for government tasks.",
+                icon: "fa-id-card",
+                order: 10,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "Baladiya Services",
+                desc: "Assistance with municipal licenses and regulatory permits.",
+                icon: "fa-city",
+                order: 11,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            },
+            {
+                title: "Visa Services",
+                desc: "Processing of employment, business, and family visit visas.",
+                icon: "fa-passport",
+                order: 12,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            }
+        ];
+
+        // Execute Seed
+        const batch = db.batch();
+        batch.set(db.collection('site_content').doc('home'), homeData);
+        batch.set(db.collection('site_content').doc('about'), aboutData);
+        batch.set(db.collection('site_content').doc('services'), servicesData);
+        batch.set(db.collection('site_content').doc('contact'), contactData);
+        batch.set(db.collection('site_content').doc('global'), globalData);
+
+        // Add services to batch (using new docs)
+        servicesList.forEach(service => {
+            const newDocRef = db.collection('services_list').doc();
+            batch.set(newDocRef, service);
+        });
+
+        batch.commit()
+            .then(() => {
+                statusDiv.className = 'alert alert-success';
+                statusDiv.innerHTML = '<strong>Success!</strong> All content sections and service items have been seeded to Firestore.';
+                spinner.classList.add('d-none');
+                dashboardBtn.classList.remove('d-none');
+            })
+            .catch((error) => {
+                console.error("Error seeding data: ", error);
+                statusDiv.className = 'alert alert-danger';
+                statusDiv.innerHTML = '<strong>Error:</strong> ' + error.message;
+                spinner.classList.add('d-none');
+            });
+    </script>
+</body>
+
+</html>
